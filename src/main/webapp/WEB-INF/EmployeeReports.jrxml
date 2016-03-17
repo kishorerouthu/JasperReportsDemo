@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
+<!-- 2016-03-03T16:24:58 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Employee_Details" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d3b6cd35-9ef4-4d34-ac1e-24b8689855b0" printOrder="Horizontal">
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+    <parameter name="ReportTitle" class="java.lang.String"/>
+    <parameter name="StockLimit" class="java.lang.Integer"/>
+    <parameter name="OrderClause" class="java.lang.String"/>
+    <queryString  language="hql">
+        	<![CDATA[from Employee employee where noOfStocks >= $P{StockLimit} order by $P!{OrderClause}]]>
+    </queryString>
+    <field name="employeeId" class="java.lang.Long">
+        <fieldDescription><![CDATA[employeeId]]></fieldDescription>
+    </field>
+    <field name="name" class="java.lang.String">
+        <fieldDescription><![CDATA[name]]></fieldDescription>
+    </field>
+    <field name="department" class="java.lang.String">
+        <fieldDescription><![CDATA[department]]></fieldDescription>
+    </field>
+    <field name="emailId" class="java.lang.String">
+        <fieldDescription><![CDATA[emailId]]></fieldDescription>
+    </field>
+    <field name="noOfStocks" class="java.lang.Integer">
+        <fieldDescription><![CDATA[noOfStocks]]></fieldDescription>
+    </field>
+    <variable name="countNumber" class="java.lang.Integer"
+              calculation="Count">
+        <variableExpression>
+            <![CDATA[Boolean.TRUE]]>
+        </variableExpression>
+    </variable>
+
+    <title>
+        <band height="70">
+            <line>
+                <reportElement x="0" y="0" width="515" height="1" uuid="67636346-0dd6-42ff-8d64-07df2176c83e"/>
+            </line>
+            <textField isBlankWhenNull="true" bookmarkLevel="1">
+                <reportElement x="0" y="10" width="515" height="30" uuid="c2c71c38-69c3-4406-a80f-74781f6ac688"/>
+                <textElement textAlignment="Center">
+                    <font size="22"/>
+                </textElement>
+                <textFieldExpression><![CDATA["Employee Details"]]></textFieldExpression>
+                <anchorNameExpression><![CDATA["Title"]]></anchorNameExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="0" y="40" width="515" height="20" uuid="4e3090c1-54a4-4f84-b2bc-7e8433a21f90"/>
+                <textElement textAlignment="Center">
+                    <font size="10"/>
+                </textElement>
+                <textFieldExpression><![CDATA["Generated on " + new java.util.Date() + ", Author: Megha Garg, HR"]]></textFieldExpression>
+            </textField>
+        </band>
+    </title>
+    <columnHeader>
+        <band height="23">
+            <staticText>
+                <reportElement mode="Opaque" x="0" y="3" width="535" height="15" backcolor="#70A9A9" uuid="eda2bd47-b449-4bed-b75a-870fafeef3ce"/>
+                <box>
+                    <bottomPen lineWidth="1.0" lineColor="#CCCCCC"/>
+                </box>
+                <text><![CDATA[
+            ]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="3" width="100" height="15" uuid="96bacc75-8121-4a98-b5cf-3f6821db10cf"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Emp Id]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="100" y="3" width="120" height="15" uuid="8f63d517-59a7-4f4e-b0d7-230e68a8a076"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Name]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="220" y="3" width="120" height="15" uuid="8f63d517-59a7-4f4e-b0d7-230e68a8a076"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Department]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="340" y="3" width="120" height="15" uuid="8f63d517-59a7-4f4e-b0d7-230e68a8a076"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Email]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="16">
+            <staticText>
+                <reportElement mode="Opaque" x="0" y="0" width="535" height="14" backcolor="#E5ECF9" uuid="814a9fbc-9563-46ee-84d9-53c72a0eb217"/>
+                <box>
+                    <bottomPen lineWidth="0.25" lineColor="#CCCCCC"/>
+                </box>
+                <text><![CDATA[
+            ]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="0" y="0" width="100" height="15" uuid="e84423a5-418c-4b79-a7d8-3757d9704c34"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{employeeId}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="100" y="0" width="120" height="15" uuid="9892cc9f-1d33-41bb-b69b-2753eb437ce6"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="220" y="0" width="120" height="15" uuid="9892cc9f-1d33-41bb-b69b-2753eb437ce6"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{department}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="340" y="0" width="120" height="15" uuid="9892cc9f-1d33-41bb-b69b-2753eb437ce6"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{emailId}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <summary>
+        <band height="400" splitType="Stretch">
+            <pieChart>
+                <chart evaluationTime="Report">
+                    <reportElement x="135" y="0" width="270" height="300"/>
+                    <chartTitle>
+                        <titleExpression>
+                            <![CDATA["Employee Stocks Pie Chart"]]>
+                        </titleExpression>
+                    </chartTitle>
+                </chart>
+                <pieDataset>
+                    <dataset incrementType="None"/>
+                    <keyExpression>
+                        <![CDATA[$F{name}]]>
+                    </keyExpression>
+                    <valueExpression>
+                        <![CDATA[$F{noOfStocks}]]>
+                    </valueExpression>
+                </pieDataset>
+                <piePlot>
+                    <plot/>
+                    <itemLabel/>
+                </piePlot>
+            </pieChart>
+        </band>
+    </summary>
+
+</jasperReport>
